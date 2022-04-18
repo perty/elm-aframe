@@ -1,5 +1,6 @@
-module Main exposing (..)
+module Logo exposing (..)
 
+import AFrame.Variants.Fill as Fill
 import Html exposing (Html)
 import Color exposing (rgb255, Color)
 import AFrame exposing (scene, entity)
@@ -11,7 +12,7 @@ import AFrame.Animations
         , dur
         , fill
         , to
-        , repeat
+        , loop
         )
 import AFrame.Primitives exposing (box, cylinder)
 import AFrame.Primitives.Attributes
@@ -63,10 +64,9 @@ main =
             [ animation
                 [ attribute_ "rotation"
                 , dur 10000
-                , easing "linear"
-                , fill "forwards"
+                , fill Fill.forwards
                 , to "0 360 0"
-                , repeat 10000
+                , loop 10000
                 ]
                 []
             , cylinder

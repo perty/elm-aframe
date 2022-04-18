@@ -1,4 +1,4 @@
-module Main exposing (..)
+module LogoPhysics exposing (..)
 
 import Html exposing (Html)
 import Color exposing (rgb255, Color)

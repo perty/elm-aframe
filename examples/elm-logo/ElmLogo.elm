@@ -1,19 +1,12 @@
-module Main exposing (..)
+module ElmLogo exposing (..)
 
+import AFrame.Variants.Easing as Easing
+import AFrame.Variants.Fill as Fill
 import Html exposing (Html)
 import Color exposing (rgb255, Color)
 import AFrame exposing (scene, entity)
-import AFrame.Animations
-    exposing
-        ( animation
-        , easing
-        , attribute_
-        , dur
-        , fill
-        , to
-        , repeat
-        )
-import AFrame.Primitives exposing (box, cylinder)
+import AFrame.Animations exposing (animation, attribute_, dur, easing, fill, loop, to)
+import AFrame.Primitives exposing (cylinder)
 import AFrame.Primitives.Attributes
     exposing
         ( rotation
@@ -65,10 +58,10 @@ main =
             [ animation
                 [ attribute_ "rotation"
                 , dur 10000
-                , easing "linear"
-                , fill "forwards"
+                , easing Easing.easeInOutSine
+                , fill Fill.forwards
                 , to "0 360 0"
-                , repeat 10000
+                , loop 10000
                 ]
                 []
             , cylinder
