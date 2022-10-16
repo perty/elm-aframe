@@ -6,8 +6,8 @@
     "url": "https://github.com/shamansir/elm-aframe/issues"
   },
   "devDependencies": {
-    "elm": "^0.18.0",
-    "elm-test": "^0.18.6"
+    "elm": "^0.19.1-5",
+    "elm-test": "^0.19.1-revision10"
   },
   "directories": {
     "example": "examples"
@@ -21,7 +21,7 @@
     "url": "git+https://github.com/shamansir/elm-aframe.git"
   },
   "scripts": {
-    "postinstall": "elm install",
+    "postinstall": "elm make src/AFrame.elm",
     "test": "elm-test",
     "example:elm-logo": "elm-live --port 1111 examples/elm-logo/src/Main.elm --open --dir=./examples/elm-logo/ -- --output=./examples/elm-logo/app.js",
     "example:HelloWorld": "elm-live --port 1111 examples/HelloWorld/Main.elm --open --dir=./examples/HelloWorld/ -- --output=./examples/HelloWorld/app.js",
