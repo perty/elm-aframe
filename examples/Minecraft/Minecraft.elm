@@ -1,16 +1,17 @@
 module Minecraft exposing (main)
 
 import AFrame exposing (scene)
-import AFrame.Primitives exposing (cylinder)
+import AFrame.Primitives exposing (assets, cylinder)
 import AFrame.Primitives.Attributes exposing (height, radius, src)
-import Html exposing (Html)
+import Html exposing (Html, img)
 import Html.Attributes exposing (id)
 
 
 main : Html msg
 main =
     scene []
-        [ ground
+        [ loadAssets
+        , ground
         ]
 
 
@@ -35,7 +36,29 @@ ground =
     cylinder
         [ id "ground"
         , height 0.1
-        , radius 10
-        , src "https://cdn.pixabay.com/photo/2013/07/12/15/00/grass-73383_960_720.png"
+        , radius 32
+        , src "#groundTexture"
         ]
         []
+
+
+
+{-
+   Preloading Assets
+   Specifying a URL via the src attribute will load the texture at runtime. Since network requests can negatively impact render performance, we can preload the texture such that the scene doesn’t start rendering until its assets have been fetched. We can do this using the asset management system.
+
+   We place <a-assets> into our <a-scene>, place assets (e.g., images, videos, models, sounds) into <a-assets>, and point to them from our entities via a selector (e.g., #myTexture).
+
+   Let’s move our ground texture to <a-assets> to be preloaded using an <img> element:
+-}
+
+
+loadAssets : Html msg
+loadAssets =
+    assets []
+        [ img
+            [ id "groundTexture"
+            , src "https://cdn.aframe.io/a-painter/images/floor.jpg"
+            ]
+            []
+        ]
