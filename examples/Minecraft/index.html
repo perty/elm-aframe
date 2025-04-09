@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Minecraft</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,user-scalable=no,maximum-scale=1">
+  <link rel="icon" href="favicon.ico">
+  <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
+  <script src="app.js"></script>
+  <script>
+    window.onload = function () {
+      Elm.Minecraft.init({
+        node: document.getElementById('attach-to')
+      });
+    }
+
+  </script>
+</head>
+<body>
+<div id="attach-to"></div>
+</body>
+</html>

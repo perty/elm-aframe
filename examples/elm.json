@@ -5,6 +5,7 @@
     "HelloWorld",
     "Logo",
     "LogoPhysics",
+    "Minecraft",
     "../src"
   ],
   "elm-version": "0.19.1",
