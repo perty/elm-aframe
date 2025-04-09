@@ -3,30 +3,40 @@ module AFrame.Primitives.Attributes exposing
     , radius, radiusTop, radiusBottom, position, scale, rotation, height, width, depth, segmentsRadial
     , angle, decay, distance, exponent, groundColor, intensity, type_
     , vrModeUi
+    , thetaLength
     )
 
 {-| A-Frame primitive attributes.
 
+
 # Mesh attributes
+
 @docs color, metalness, shader, src, opacity, roughness, translate, transparent
 
+
 # Geometry attributes
+
 @docs radius, radiusTop, radiusBottom, position, scale, rotation, height, width, depth, segmentsRadial
 
+
 # Light attributes
+
 @docs angle, decay, distance, exponent, groundColor, intensity, type_
 
+
 # Scene attributes
+
 @docs vrModeUi
 
 -}
 
-import String exposing (toLower)
-import Html exposing (Attribute)
-import Html.Attributes exposing (attribute)
+import AFrame.Util exposing (..)
 import Color exposing (Color)
 import Color.Convert exposing (colorToHex)
-import AFrame.Util exposing (..)
+import Html exposing (Attribute)
+import Html.Attributes exposing (attribute)
+import String exposing (toLower)
+
 
 
 -- Mesh attributes
@@ -66,6 +76,12 @@ opacity value =
 roughness : Float -> Attribute msg
 roughness value =
     attribute "roughness" (String.fromFloat value)
+
+
+{-| -}
+thetaLength : Float -> Attribute msg
+thetaLength value =
+    attribute "theta-length" (String.fromFloat value)
 
 
 {-| -}
@@ -212,4 +228,4 @@ vrModeUi enabled =
         attribstring =
             "enabled: " ++ value
     in
-        attribute "vm-mode-ui" attribstring
+    attribute "vm-mode-ui" attribstring
